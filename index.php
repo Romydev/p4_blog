@@ -1,7 +1,7 @@
 <?php
 
 session_start();
- 
+include_once ('Entities/Post.php');
 // Setting internal encoding for string functions
 mb_internal_encoding("UTF-8");
 function autoloadFunction($class)

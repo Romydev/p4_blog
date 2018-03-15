@@ -1,22 +1,22 @@
-<?php $titre = "Mon Blog - " . $billet['titre']; ?>
+<?php $titre = "Mon Blog - " . $billet->getTitre(); ?>
 
-<?php $this->titre = "Mon Blog - " . $billet['titre']; ?>
+<?php $this->titre = "Mon Blog - " . $billet->getTitre(); ?>
 
 <article class="card">
     <header>
         <h1 class="titreBillet">
-            <?= $billet['titre'] ?>
+            <?= $billet->getTitre(); ?>
         </h1>
-        <time><?= $billet['date'] ?></time>
+        <time><?= $billet->getDate(); ?></time>
     </header>
     <p>
-        <?= $billet['contenu'] ?>
+        <?= $billet->getContenu(); ?>
     </p>
 </article>
 
 <div class="card card-comments mb-3 wow fadeIn">
     <div class="card-header font-weight-bold">Commentaire de l'article
-        <?= $billet['titre'] ?>
+        <?= $billet->getTitre(); ?>
     </div>
     <div class="card-body">
 

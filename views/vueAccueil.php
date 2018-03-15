@@ -1,18 +1,18 @@
 <?php $this->titre = "Mon Blog"; ?>
 
-<?php foreach ($billets as $billet):
-    ?>
+<?php foreach ($billets as $billet): ?>
+
 <article class="card">
     <header>
-        <a href="<?= " index.php?action=billet&id=" . $billet['id'] ?>">
+        <a href="<?= " index.php?action=billet&id=". $billet->getId()?>">
             <h1 class="card-title">
-                <?= $billet['titre'] ?>
+                <?= $billet->getTitre(); ?>
             </h1>
         </a>
-        <time><?= $billet['date'] ?></time>
+        <time><?= $billet->getDate(); ?></time>
     </header>
     <p class="card-text">
-        <?= $billet['contenu'] ?>
+        <?= $billet->getContenu(); ?>
     </p>
 </article>
 
