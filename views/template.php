@@ -41,13 +41,11 @@
                         <ul class="navbar-nav mr-auto">
 
                             <li class="nav-item">
-                                <a class="nav-link waves-effect" href="article" target="_blank">Bio </a>
+                                <a class="nav-link waves-effect" href="index.php?action=Billets">Bio </a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link waves-effect" href="article" target="_blank">Episodes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link waves-effect" href="views/vueContact.php" target="_blank">Contact</a>
+                                <a class="nav-link waves-effect" href="index.php?action=contact">Contact</a>
                             </li>
                         </ul>
 
@@ -91,7 +89,7 @@
                             <strong>Learn Bootstrap 4 with MDB</strong>
                         </h1>
                         <p>
-                            <strong>Best & free guide of responsive web design</strong>
+                            <strong>Best free guide of responsive web design</strong>
                         </p>
                         <p class="mb-4">
                             <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written
@@ -131,6 +129,11 @@
         </main>
         <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
 
+
+
+            <div class="col-lg-3">
+                <a href="index.php?action=formulaire"><button type="button" class="btn btn-success" title="Connexion"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></a>
+            </div>
             <!--Call to action-->
 
             <!--/.Call to action-->

@@ -1,7 +1,10 @@
 <?php
 require_once 'model/Modele.php';
-
-
+/**
+ * Fournit les services d'accès aux genres musicaux 
+ * 
+ * @author Baptiste Pesquet
+ */
 class Billet extends Modele {
     /** Renvoie la liste des billets du blog
      * 
@@ -12,20 +15,7 @@ class Billet extends Modele {
                 . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
                 . ' order by BIL_ID desc';
         $billets = $this->executerRequete($sql);
-         
-        
-        
-        
-        $posts = [];
-        foreach ($billets as $billet)
-        {
-            $post = new Post($billet);
-            $posts[] = $post;
-        }
-        return $posts;
-        
-        
-        
+        return $billets;
     }
     /** Renvoie les informations sur un billet
      * 
@@ -38,11 +28,8 @@ class Billet extends Modele {
                 . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
                 . ' where BIL_ID=?';
         $billet = $this->executerRequete($sql, array($idBillet));
-        if ($billet->rowCount() > 0){
-            $billet = $billet->fetch();  // Accès à la première ligne de résultat
-            $post = new Post($billet);
-            return $post;
-        }
+        if ($billet->rowCount() > 0)
+            return $billet->fetch();  // Accès à la première ligne de résultat
         else
             throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
     }

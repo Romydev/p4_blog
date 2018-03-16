@@ -1,7 +1,8 @@
 <?php
-
 session_start();
-include_once ('Entities/Post.php');
+if(!isset($_SESSION['Auth'])){
+    $_SESSION['Auth'] = false;
+}
 // Setting internal encoding for string functions
 mb_internal_encoding("UTF-8");
 function autoloadFunction($class)
@@ -19,5 +20,6 @@ spl_autoload_register("autoloadFunction");
 // Connects to the database Db::connect("localhost", "root", "", "blogtest");
 
 // Creating the router and processing parameters from the user's URL
+require 'controllers/controleurRouteur.php';
 $routeur = new ControleurRouteur();
 $routeur->routerRequete();

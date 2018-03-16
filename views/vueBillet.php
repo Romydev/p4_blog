@@ -1,22 +1,20 @@
-<?php $titre = "Mon Blog - " . $billet->getTitre(); ?>
-
-<?php $this->titre = "Mon Blog - " . $billet->getTitre(); ?>
+<?php $this->titre = "Mon Blog - " . $billet['titre']; ?>
 
 <article class="card">
     <header>
         <h1 class="titreBillet">
-            <?= $billet->getTitre(); ?>
+            <?= $billet['titre'] ?>
         </h1>
-        <time><?= $billet->getDate(); ?></time>
+        <time> <?= $billet['date'] ?></time>
     </header>
     <p>
-        <?= $billet->getContenu(); ?>
+        <?= $billet['contenu'] ?>
     </p>
 </article>
 
 <div class="card card-comments mb-3 wow fadeIn">
     <div class="card-header font-weight-bold">Commentaire de l'article
-        <?= $billet->getTitre(); ?>
+        <?= $billet['titre'] ?>
     </div>
     <div class="card-body">
 
@@ -33,6 +31,16 @@
                 <p>
                     <?= $commentaire['contenu'] ?>
                 </p>
+
+                <div class="col-lg-offset-10">
+                    <div class="signal">
+                        <form method="post" action="index.php?action=signalement" onclick="return(confirm('Êtes-vous sûr de vouloir signaler ce commentaire ?'))">
+                            <input type="hidden" name="idComm" value="<?= $commentaire['id'] ?>" />
+                            <input type="hidden" name="idBillet" value="<?= $billet['id'] ?>" />
+                            <button type="submit" class="btn btn-danger btn-xs" title="Signaler"><span class="glyphicon glyphicon-alert"><strong> Signaler ce commentaire </strong></span></button>
+                        </form>
+                    </div>
+                </div>
                 <hr/>
                 <?php endforeach; ?>
             </div>

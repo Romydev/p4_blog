@@ -1,6 +1,7 @@
 <?php
 
-class ControleurRouteur {
+class Routeur {
+
   private $ctrlAccueil;
   private $ctrlBillet;
   private $ctrlContact;
@@ -22,16 +23,17 @@ class ControleurRouteur {
     $this->ctrlModif = new ControleurModif();
     $this->ctrlSignal= new ControleurSignal();
   }
-    // Route une requête entrante : exécution l'action associée
-     public function routerRequete() {
+
+  // Traite une requête entrante
+  public function routerRequete() {
     try {
       if (isset($_GET['action'])) {
           
           switch ($_GET['action']) {
                 case 'billet':
-                   $idBillet = intval($this->getParametre($_GET, 'id'));
+                    $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
-                        $this->ctrlBillet->billet($idBillet);
+                        $this->ctrlBilletDetail->billetDetail($idBillet);
                     } else {
                         throw new Exception("Identifiant de l'épisode non valide");
                     }
@@ -48,7 +50,7 @@ class ControleurRouteur {
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $this->ctrlEditeur->editer($billetNb, $titre, $contenu);
                     break;
-                case 'editeur':
+                  case 'editeur':
                     $this->ctrlEditeur->editeur();
                     break;
                 case 'connexion':
@@ -78,7 +80,7 @@ class ControleurRouteur {
                     $titre = $this->getParametre($_POST, 'titre');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlModif->modifBillet($idBillet, $titre, $contenu);
+                    $this->ctrlModif->modifBbillet($idBillet, $titre, $contenu);
                     break;
                 case 'editeurModifBillet':
                    $idBillet = $this->getParametre($_POST, 'id');
@@ -123,12 +125,9 @@ class ControleurRouteur {
                   break;
           }
       }
-    //else accueil
-     else
-     {
-                  $this->ctrlAccueil->accueil();
-     }
-    ////////////////////////
+      else {  // aucune action définie : affichage de l'accueil
+        $this->ctrlAccueil->accueil();
+      }
     }
     catch (Exception $e) {
       $this->erreur($e->getMessage());
