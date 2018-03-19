@@ -22,3 +22,7 @@
 .card {
     margin: 10px !important;
 }
+
+.titre {
+    border: 1 solid grey;
+}

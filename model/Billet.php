@@ -33,4 +33,26 @@ class Billet extends Modele {
         else
             throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
     }
+    
+   // Ajoute un épisode dans la bdd
+  public function ajouterBillet($titre, $contenu) {
+    $sql = 'INSERT INTO T_BILLET(BIL_ID, BIL_DATE, BIL_TITRE,BIL_CONTENU)'
+      . ' values(?, ?, ?, ?)';
+    $date = date('Y-m-d H:i:s');  // Récupère la date courante
+    $this->executerRequete($sql, array($titre, $date, $contenu)); 
+  }
+    
+  // Modifie un épisode dans la bdd
+  public function modifBillet($idBillet, $titre, $contenu) {
+    $sql = "UPDATE T_BILLET SET title='$titre', content='$contenu' WHERE id='$idBillet'";
+    $billets = $this->executerRequete($sql);
+    echo "Episode modifié";
+    }
+    
+  // Supprimer un épisode de la bdd
+  public function delete($idEpisode){
+          $sql ="DELETE FROM T_BILLET WHERE id='$idBillet'";
+      $billets = $this->executerRequete($sql/*, array($idEpisode)*/);
+    return $billets;
+  }
 }

@@ -23,7 +23,7 @@ class ControleurAdmin {
   public function commentaire() {
     $commentaires = $this->commentaire->getComm();
     $vue = new Vue("AdminComm");
-    $vue->generer(array('commentaires' => $commentaires));
+    $vue->generer(array('commentaires'=> $commentaires));
  
   }
 }

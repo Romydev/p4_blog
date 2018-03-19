@@ -22,7 +22,7 @@ class ControleurSuppr {
   }
 
   // Supprime un épisode
-  public function deletebillet($idBillet) {
+  public function deleteBillet($idBillet) {
     // Sauvegarde du billet
     $this->billet->delete($idBillet); 
     // Actualisation de l'affichage du billet

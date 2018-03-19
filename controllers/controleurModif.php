@@ -30,8 +30,8 @@ class ControleurModif {
   }
     
   // Affiche le billet
-  public function editeurBillet($billetId) {
-    $billet = $this->billet->getBillet($billetId);
+  public function editeurModifBillet($idBillet) {
+    $billet = $this->billet->getBillet($idBillet);
     $vue = new Vue("ModifBillet");
     $vue->generer(array('modifBillet' => $billet));
   }
@@ -44,9 +44,9 @@ class ControleurModif {
   }
 
   // Modifie un commentaire
-  public function modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $epId) {
+  public function modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId) {
     // Sauvegarde du commentaire
-    $this->commentaire->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $epId);
+    $this->commentaire->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId);
     // Actualisation de l'affichage du commentaire
     $this->commentaire();
   }

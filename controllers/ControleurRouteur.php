@@ -43,10 +43,10 @@ class ControleurRouteur {
                      $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
                     break;
                 case 'editer':
-                    $billetNb = $this->getParametre($_POST, 'billetNb');
+                   
                     $titre = $this->getParametre($_POST, 'titre');
                     $contenu = $this->getParametre($_POST, 'contenu');
-                    $this->ctrlEditeur->editer($billetNb, $titre, $contenu);
+                    $this->ctrlEditeur->editer($titre, $contenu);
                     break;
                 case 'editeur':
                     $this->ctrlEditeur->editeur();
@@ -91,10 +91,10 @@ class ControleurRouteur {
                 case 'modifComm':
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
-                    $epId = $this->getParametre($_POST, 'epId');
+                    $idBillet = $this->getParametre($_POST, 'idBillet');
                     $signal = $this->getParametre($_POST, 'signal');
                     $idCommentaire = $this->getParametre($_POST, 'id');
-                    $this->ctrlModif->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $epId);
+                    $this->ctrlModif->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $idBillet);
                     break;
                 case 'editeurModifComm':
                    $idCommentaire = $this->getParametre($_POST, 'id');

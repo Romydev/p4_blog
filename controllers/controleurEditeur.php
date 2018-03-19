@@ -19,9 +19,9 @@ class ControleurEditeur {
   }
 
   // Ajoute un billet
-  public function editer($billetNb, $titre, $contenu) {
+  public function editer($titre,$contenu) {
     // Sauvegarde de l'épisode
-    $this->billet->ajouterBillet($billetNb, $titre, $contenu); 
+    $this->billet->ajouterBillet($titre,$contenu); 
     // Actualisation de l'affichage de l'épisode
     $this->billet();
   }
