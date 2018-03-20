@@ -20,14 +20,14 @@ class ControleurSignal {
   public function billetDetail($idBillet) {
     $billet = $this->billet->getBillet($idBillet);
     $commentaires = $this->commentaire->getCommentaires($idBillet);
-    $vue = new Vue("vuebillet");
+    $vue = new Vue("billet");
     $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
   }
     
   // Signale un commentaire
   public function signal($idCommentaire, $idBillet) {
     // Sauvegarde du signalement du commentaire
-    $this->commentaire->signal($idCommentaire, $idBillet); 
+    $this->commentaire->signal($idCommentaire,$idBillet); 
     // Actualisation de l'affichage du commentaire
     $this->billetDetail($idBillet);
   }

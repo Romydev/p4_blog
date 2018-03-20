@@ -38,20 +38,22 @@ class Billet extends Modele {
   public function ajouterBillet($titre, $contenu) {
     $sql = 'INSERT INTO T_BILLET(BIL_ID, BIL_DATE, BIL_TITRE,BIL_CONTENU)'
       . ' values(?, ?, ?, ?)';
-    $date = date('Y-m-d H:i:s');  // Récupère la date courante
-    $this->executerRequete($sql, array($titre, $date, $contenu)); 
+         $date = new DateTime('now',new DateTimeZone('Europe/Paris'));  // Récupère la date courante
+        $date_string =$date->format('Y-m-d H:m:s');
+        $this->executerRequete($sql, array( $idBillet,$date_string, $titre, $contenu,));
+
   }
     
   // Modifie un épisode dans la bdd
   public function modifBillet($idBillet, $titre, $contenu) {
-    $sql = "UPDATE T_BILLET SET title='$titre', content='$contenu' WHERE id='$idBillet'";
+    $sql = "UPDATE T_BILLET SET BIL_TITRE='$titre', BIL_CONTENU='$contenu' WHERE BIL_ID='$idBillet'";
     $billets = $this->executerRequete($sql);
     echo "Episode modifié";
     }
     
   // Supprimer un épisode de la bdd
-  public function delete($idEpisode){
-          $sql ="DELETE FROM T_BILLET WHERE id='$idBillet'";
+  public function delete($idBillet){
+          $sql ="DELETE FROM T_BILLET WHERE BIL_ID='$idBillet'";
       $billets = $this->executerRequete($sql/*, array($idEpisode)*/);
     return $billets;
   }

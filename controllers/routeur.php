@@ -117,7 +117,7 @@ class Routeur {
                 case 'signalement':
                     $idBillet = $this->getParametre($_POST, 'idBillet');
                     $idCommentaire = $this->getParametre($_POST, 'idComm');
-                    $this->ctrlSignal->signal($idCommentaire, $idbillet);
+                    $this->ctrlSignal->signal($idCommentaire, $idBillet);
                     break;
                 
               default:

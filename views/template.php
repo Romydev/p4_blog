@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
-        <?= $title ?>
+        <?= $titre ?>
     </title>
     <meta name="description" content="<?= $description ?>" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
     <!-- Bootstrap core CSS -->
-    <link href="views/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="views/css/mdb.min.css" rel="stylesheet">
+    <link href="vendor/css/mdb.min.css" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="views/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="vendor/css/main.css">
+    <link href="vendor/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -188,14 +189,26 @@
     <!-- #global -->
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="views/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="vendor/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="views/js/popper.min.js"></script>
+    <script type="text/javascript" src="vendor/js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="views/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="views/js/mdb.min.js"></script>
+    <script type="text/javascript" src="vendor/js/mdb.min.js"></script>
     <!-- Initializations -->
+
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <script src="vendor/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+
+    </script>
+    <script src="js/main.js"></script>
+
     <script type="text/javascript">
         // Animations initialization
         new WOW().init();

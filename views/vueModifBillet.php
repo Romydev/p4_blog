@@ -17,11 +17,11 @@
 
     <section class="col-lg-offset-3">
         <div class="edit">
-            <h3>Modifier l'article</h3>
+            <h3>Modifier l'épisode</h3>
 
             <form method="post" action="index.php?action=modifBillet">
                 <input type="hidden" name="id" value="<?= $modifBillet['id'] ?>">
-                <p>Titre : <input type="text" id="titre" name="titre" value="<?= $modifBillet['titre'] ?>" />
+                <p>Titre de l'épisode : <input type="text" id="titre" name="titre" value="<?= $modifBillet['titre'] ?>" />
                 </p>
                 <br/>
                 <textarea id="txtBillet" name="contenu" style="width:80%;height:350px;"><?= $modifBillet['contenu'] ?></textarea><br/>
@@ -35,7 +35,7 @@
 
     <div class="buttonUp">
         <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg">
-            Retour vers la page Article
+            Retour vers la page Billet
         </a>
     </div>
 

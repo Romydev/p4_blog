@@ -1,12 +1,12 @@
 <?php $this->titre = "Jean Forteroche"; ?>
-<div class="col-lg-offset-1 col-lg-12 ">
-    <p>Articles</p>
-</div>
 
-<section class="col-lg-offset-1 col-lg-12">
+
+<section class=" card col-lg-offset-1 col-lg-12">
+
+    <h4>Articles</h4>
 
     <table class="table table-hover table-bordered mb-0">
-        <thead>
+        <thead class="mdb-color lighten-2">
             <tr>
                 <th>ID</th>
                 <th>Titre</th>
@@ -29,13 +29,16 @@
                 <td class="text-nowrap">
 
                     <form method="post" action="index.php?action=editeurModifBillet">
-                        <input type="hidden" name="id" value="<?php echo $billet['id']; ?>" />
-                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="glyphicon glyphicon-edit"> Modifier</span></button>
+                        <input type="hidden" name="id" value="<?=$billet['id']?>" />
+                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="fa fa-edit" aria-hidden="true"> Modifier</span>
+                        
+                        
+                        </button>
                     </form>
 
                     <form method="post" action="index.php?action=deleteBillet" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer cet épisode ?'))">
                         <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
-                        <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="glyphicon glyphicon-trash"></span></button>
+                        <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="fa fa-trash" aria-hidden="true"></span></button>
                     </form>
                 </td>
             </tr>
@@ -44,21 +47,23 @@
     </table>
 
 
-    <div class="col-lg-offset-5">
-        <a href="index.php?action=editeur"><button type="button" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span> Ajouter un nouvel article</button></a>
+    <div class="col-lg-offset-12">
+        <a href="index.php?action=editeur"><button type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Ajouter un nouvel article</button></a>
     </div>
 
-</section>
-<div class="col-lg-offset-1 col-lg-12 ">
-    <p>Commentaires</p>
-</div>
 
-<section class="col-lg-offset-1 col-lg-12">
+
+</section>
+
+
+<section class="card col-lg-offset-1 col-lg-12">
+
+    <h4>Commentaires</h4>
+
     <table class="table table-hover table-bordered mb-0">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>titre</th>
                 <th>Auteur</th>
                 <th>Contenu</th>
                 <th>Date</th>
@@ -69,19 +74,16 @@
             <?php foreach ($commentaires as $commentaire): ?>
             <tr>
                 <td>
-                    <?= $commentaire['id'] ?>
+                    <?= $commentaire['com_id'] ?>
                 </td>
                 <td>
-                    <?= $commentaire['titre'] ?>
+                    <?= $commentaire['COM_AUTEUR'] ?>
                 </td>
                 <td>
-                    <?= $commentaire['auteur'] ?>
+                    <?= $commentaire['com_contenu'] ?>
                 </td>
                 <td>
-                    <?= $commentaire['contenu'] ?>
-                </td>
-                <td>
-                    <?= $commentaire['date'] ?>
+                    <?= $commentaire['com_date'] ?>
                 </td>
                 <td class="text-nowrap">
 

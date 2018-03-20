@@ -83,7 +83,7 @@ class ControleurRouteur {
                 case 'editeurModifBillet':
                    $idBillet = $this->getParametre($_POST, 'id');
                     if ($idBillet != 0) {
-                        $this->ctrlModif->editeurModifBillet($idbillet);
+                        $this->ctrlModif->editeurModifBillet($idBillet);
                     } else {
                         throw new Exception("Identifiant de l'épisode non valide");
                     }
@@ -114,8 +114,8 @@ class ControleurRouteur {
                     break;
                 case 'signalement':
                     $idBillet = $this->getParametre($_POST, 'idBillet');
-                    $idCommentaire = $this->getParametre($_POST, 'idComm');
-                    $this->ctrlSignal->signal($idCommentaire, $idbillet);
+                    $idCommentaire = $this->getParametre($_POST,'idComm');
+                    $this->ctrlSignal->signal($idCommentaire, $idBillet);
                     break;
                 
               default:

@@ -26,16 +26,16 @@
 
                 <?php foreach ($commentaires as $commentaire): ?>
                 <h5 class="mt-0 font-weight-bold">
-                    <?= $commentaire['auteur'] ?> dit :
+                    <?= $commentaire['com_auteur'] ?> dit :
                 </h5>
                 <p>
-                    <?= $commentaire['contenu'] ?>
+                    <?= $commentaire['com_contenu'] ?>
                 </p>
 
                 <div class="col-lg-offset-10">
                     <div class="signal">
                         <form method="post" action="index.php?action=signalement" onclick="return(confirm('Êtes-vous sûr de vouloir signaler ce commentaire ?'))">
-                            <input type="hidden" name="idComm" value="<?= $commentaire['id'] ?>" />
+                            <input type="hidden" name="idComm" value="<?= $commentaire['com_id'] ?>" />
                             <input type="hidden" name="idBillet" value="<?= $billet['id'] ?>" />
                             <button type="submit" class="btn btn-danger btn-xs" title="Signaler"><span class="glyphicon glyphicon-alert"><strong> Signaler ce commentaire </strong></span></button>
                         </form>

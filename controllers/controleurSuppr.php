@@ -16,7 +16,7 @@ class ControleurSuppr {
 
   // Affiche les billets
   public function billet() {
-    $billets = $this->billet->getBillet();
+    $billets = $this->billet->getBillets();
     $vue = new Vue("AdminBillet");
     $vue->generer(array('billets' => $billets));
   }
