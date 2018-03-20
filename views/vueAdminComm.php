@@ -4,7 +4,6 @@
     <table border=6 cellspacing=10 cellpadding=10 width=100%>
         <thead>
             <th>ID</th>
-            <th>Billet ID</th>
             <th>Auteur</th>
             <th>Commentaire</th>
             <th>Nombre de signalement</th>
@@ -18,7 +17,7 @@
                     <?= $commentaire['com_id'] ?>
                 </td>
                 <td>
-                    <?= $commentaire['com_epId'] ?>
+                    <?= $commentaire['com_billetId'] ?>
                 </td>
                 <td>
                     <?= $commentaire['com_auteur'] ?>

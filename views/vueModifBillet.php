@@ -25,7 +25,7 @@
                 </p>
                 <br/>
                 <textarea id="txtBillet" name="contenu" style="width:80%;height:350px;"><?= $modifBillet['contenu'] ?></textarea><br/>
-                <button type="submit" class="btn btn-default" value="Enregistrer la modification"><strong>Enregistrer la modification </strong><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                <button type="submit" class="btn btn-default" value="Enregistrer la modification"><span class="fa fa-save" aria-hidden="true">Enregistrer la modification </span></button>
             </form>
 
         </div>
@@ -34,8 +34,8 @@
     <br/>
 
     <div class="buttonUp">
-        <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg">
-            Retour vers la page Billet
+        <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg"><span class="fa fa-caret-left" aria-hidden="true">
+            Retour vers la page Billet</span>
         </a>
     </div>
 

@@ -56,16 +56,16 @@ class Commentaire extends Modele {
     } 
     // Modifie un commentaire dans la bdd
   public function modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId) {
-    $sql = "UPDATE commentaires SET author='$auteur', content='$contenu', signal_number='$signal', BIL_ID='$billetId' WHERE COM_ID='$idCommentaire'";
+    $sql = "UPDATE T_COMMENTAIRE SET COM_AUTEUR='$auteur', COM_CONTENU='$contenu', signal_number='$signal', BIL_ID='$billetId' WHERE COM_ID='$idCommentaire'";
     $commentaires = $this->executerRequete($sql);
     echo "Commentaire modifié";
     }
         
     // Supprimer un commentaire de la bdd
   public function delete($idCommentaire){
-      $sql = 'DELETE FROM commentaires WHERE COM_ID='.$idCommentaire;
+      $sql = 'DELETE FROM T_COMMENTAIRE WHERE COM_ID='.$idCommentaire;
       $commentaires = $this->executerRequete($sql/*, array($idEpisode)*/);
-    return $commentaires;
+    return $billets;
   }
     
     // Signaler un commentaire de la bdd

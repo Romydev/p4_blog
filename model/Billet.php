@@ -48,13 +48,14 @@ class Billet extends Modele {
   public function modifBillet($idBillet, $titre, $contenu) {
     $sql = "UPDATE T_BILLET SET BIL_TITRE='$titre', BIL_CONTENU='$contenu' WHERE BIL_ID='$idBillet'";
     $billets = $this->executerRequete($sql);
-    echo "Episode modifié";
+    echo "Article modifié";
+  
     }
     
   // Supprimer un épisode de la bdd
   public function delete($idBillet){
-          $sql ="DELETE FROM T_BILLET WHERE BIL_ID='$idBillet'";
-      $billets = $this->executerRequete($sql/*, array($idEpisode)*/);
+          $sql ='DELETE FROM T_BILLET WHERE BIL_ID='.$idBillet;
+      $billets = $this->executerRequete($sql/*, array($idBillet)*/);
     return $billets;
   }
 }

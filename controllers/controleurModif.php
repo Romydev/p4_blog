@@ -26,14 +26,12 @@ class ControleurModif {
     // Sauvegarde de l'épisode
     $this->billet->modifBillet($idBillet, $titre, $contenu); 
     // Actualisation de l'affichage de l'épisode
-        $vue = new Vue("ModifBillet");
-        $vue->generer(array('billets' => $billets));
+         $this->billet();
   }
     
-
     
-     public function editeurModifBillet($billetId) {
-    $billet = $this->billet->getBillet($billetId);
+     public function editeurModifBillet($idBillet) {
+    $billet = $this->billet->getBillet($idBillet);
     $vue = new Vue("ModifBillet");
     $vue->generer(array('modifBillet' => $billet));
   }
@@ -55,8 +53,8 @@ class ControleurModif {
   }
     
   // Affiche l'éditeur
-  public function editeurModifComm($commentaireId) {
-    $commentaire = $this->commentaire->getCommentaire($commentaireId);
+  public function editeurModifComm($idCommentaire) {
+    $commentaire = $this->commentaire->getCommentaire($idCommentaire);
     $vue = new Vue("ModifComm");
     $vue->generer(array('modifComm' => $commentaire));
   }

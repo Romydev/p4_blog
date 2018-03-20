@@ -23,7 +23,7 @@
                 <p>Titre de l'épisode : <input type="text" id="titre" name="titre" /></p>
                 <br/>
                 <textarea id="txtBillet" name="contenu" style="width:80%;height:350px;"></textarea><br/>
-                <button type="submit" class="btn btn-default" value="Publier"><strong>Poster votre épisode </strong><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                <button type="submit" class="btn btn-default" value="Publier"><span class="fa fa-edit"><strong> Poster votre épisode </strong></span></button>
             </form>
 
         </div>
@@ -32,9 +32,9 @@
     <br/>
 
     <div class="buttonUp">
-        <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg">
-            Retour vers la page Billet
-        </a>
+        <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg"><span class="fa fa-caret-left" aria-hidden="true">
+            <strong> Retour vers aux articles</strong></span></a>
+
     </div>
 
 </body>

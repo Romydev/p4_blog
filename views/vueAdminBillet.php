@@ -30,9 +30,7 @@
 
                     <form method="post" action="index.php?action=editeurModifBillet">
                         <input type="hidden" name="id" value="<?=$billet['id']?>" />
-                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="fa fa-edit" aria-hidden="true"> Modifier</span>
-                        
-                        
+                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="fa fa-edit" aria-hidden="true"> Modifier</span> 
                         </button>
                     </form>
 
@@ -48,7 +46,7 @@
 
 
     <div class="col-lg-offset-12">
-        <a href="index.php?action=editeur"><button type="button" class="btn btn-primary"><i class="fa fa-edit"></i> Ajouter un nouvel article</button></a>
+        <a href="index.php?action=editeur"><button type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>  Ajouter un nouvel article</button></a>
     </div>
 
 
