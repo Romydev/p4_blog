@@ -12,10 +12,10 @@ class ControleurAdmin {
     $this->commentaire = new Commentaire();
   }
 
-  // Affiche les épisodes
+  // Affiche les articles
   public function billet() {
     $billets = $this->billet->getBillets();
-    $commentaires = $this->commentaire->getComm();
+    $commentaires = $this->commentaire->getCommSignal();
   
     $vue = new Vue("AdminBillet");
     $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));  

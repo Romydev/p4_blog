@@ -85,9 +85,9 @@
                 </td>
                 <td class="text-nowrap">
 
-                    <form method="post" action="index.php?action=editeurModifComm">
-                        <input type="hidden" name="id" value="<?php echo $commentaire['id']; ?>" />
-                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="glyphicon glyphicon-edit"> Modifier</span></button>
+                    <form method="post" action="index.php?action=validComm">
+                        <input type="hidden" name="id" value="<?php echo $commentaire['com_id']; ?>" />
+                        <button type="submit" class="btn btn-info btn-xs" title="Valider"><span class="glyphicon glyphicon-edit"> Valider</span></button>
                     </form>
 
                     <form method="post" action="index.php?action=deleteComm" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?'))">

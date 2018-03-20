@@ -14,11 +14,13 @@ class ControleurSuppr {
     $this->commentaire = new Commentaire();
   }
 
-  // Affiche les billets
+  // Affiche les articles
   public function billet() {
     $billets = $this->billet->getBillets();
+    $commentaires = $this->commentaire->getCommSignal();
+  
     $vue = new Vue("AdminBillet");
-    $vue->generer(array('billets' => $billets));
+    $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));  
   }
 
   // Supprime un épisode
@@ -41,6 +43,5 @@ class ControleurSuppr {
     // Sauvegarde du commentaire
     $this->commentaire->delete($idCommentaire); 
     // Actualisation de l'affichage du commentaire
-    $this->commentaire();
-  }
-}
+    $this->billet();
+  } }

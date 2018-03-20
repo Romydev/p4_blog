@@ -88,22 +88,17 @@ class ControleurRouteur {
                         throw new Exception("Identifiant de l'épisode non valide");
                     }
                     break;
-                case 'modifComm':
-                    $auteur = $this->getParametre($_POST, 'auteur');
-                    $contenu = $this->getParametre($_POST, 'contenu');
-                    $idBillet = $this->getParametre($_POST, 'idBillet');
-                    $signal = $this->getParametre($_POST, 'signal');
-                    $idCommentaire = $this->getParametre($_POST, 'id');
-                    $this->ctrlModif->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $idBillet);
-                    break;
-                case 'editeurModifComm':
-                   $idCommentaire = $this->getParametre($_POST, 'id');
-                    if ($idCommentaire != 0) {
-                        $this->ctrlModif->editeurModifComm($idCommentaire);
+              
+                case 'validComm':
+                   ////////////////////
+                  $idCommentaire = $this->getParametre($_POST, 'id');
+                  if ($idCommentaire != 0) {
+                        $this->ctrlModif->editeurValidComm($idCommentaire);
                     } else {
                         throw new Exception("Identifiant du commentaire non valide");
                     }
                     break;
+
                 case 'deleteBillet':
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlSuppr->deleteBillet($idBillet);

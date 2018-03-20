@@ -13,12 +13,22 @@ class ControleurModif {
     $this->billet = new Billet();
     $this->commentaire = new Commentaire();
   }
-
-  // Affiche un billet
+    
+    // Affiche les articles
   public function billet() {
-    $billet = $this->billet->getBillet();
+    $billets = $this->billet->getBillets();
+    $commentaires = $this->commentaire->getCommSignal();
+  
     $vue = new Vue("AdminBillet");
-    $vue->generer(array('billets' => $billets));
+    $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));  
+  }
+
+    // Affiche les détails sur un billet
+  public function billetDetail($idBillet) {
+    $billet = $this->billet->getBillet($idBillet);
+    $commentaires = $this->commentaire->getCommentaires($idBillet);
+    $vue = new Vue("billet");
+    $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
   }
 
   // Modifie un billet
@@ -44,18 +54,11 @@ class ControleurModif {
     $vue->generer(array('commentaires' => $commentaires));
   }
 
-  // Modifie un commentaire
-  public function modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId) {
-    // Sauvegarde du commentaire
-    $this->commentaire->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId);
-    // Actualisation de l'affichage du commentaire
-    $this->commentaire();
-  }
-    
+
   // Affiche l'éditeur
-  public function editeurModifComm($idCommentaire) {
-    $commentaire = $this->commentaire->getCommentaire($idCommentaire);
-    $vue = new Vue("ModifComm");
-    $vue->generer(array('modifComm' => $commentaire));
+  public function editeurValidComm($idCommentaire) {
+    $this->commentaire->validCommentaire($idCommentaire);
+    
+    $this->billet();
   }
 }

@@ -15,7 +15,7 @@ class ControleurUser{
     public function connecte($login, $pass){
         if($this->user->verifUser($login, $pass) == true){
             $billets = $this->billet->getBillets();
-            $commentaires = $this->commentaire->getComm();
+            $commentaires = $this->commentaire->getCommSignal();
             $_SESSION['Auth'] = true;
             $vue = new Vue ("AdminBillet");
             $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));//Mod Hellodevs

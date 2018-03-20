@@ -35,6 +35,15 @@ class Commentaire extends Modele {
     $commentaires = $this->executerRequete($sql);
     return $commentaires;
   }
+    public function getCommSignal() {
+    $sql = 'SELECT COM_ID AS com_id, COM_DATE AS com_date,'
+            . ' BIL_ID AS com_bilId, signal_number AS com_signal,'
+            . 'COM_AUTEUR AS COM_AUTEUR, COM_CONTENU AS com_contenu FROM T_COMMENTAIRE'
+            . ' WHERE signal_number > 0'
+            . ' ORDER BY COM_DATE ASC';
+    $commentaires = $this->executerRequete($sql);
+    return $commentaires;
+  }
     
     // Renvoie la liste des commentaires du blog
   public function getComms() {
@@ -55,10 +64,10 @@ class Commentaire extends Modele {
         $this->executerRequete($sql, array($date_string, $auteur, $contenu, $idBillet));
     } 
     // Modifie un commentaire dans la bdd
-  public function modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $billetId) {
-    $sql = "UPDATE T_COMMENTAIRE SET COM_AUTEUR='$auteur', COM_CONTENU='$contenu', signal_number='$signal', BIL_ID='$billetId' WHERE COM_ID='$idCommentaire'";
+  public function validCommentaire($idCommentaire) {
+    $sql = "UPDATE T_COMMENTAIRE SET signal_number = 0 WHERE COM_ID='$idCommentaire'";
     $commentaires = $this->executerRequete($sql);
-    echo "Commentaire modifié";
+    echo "Commentaire validé";
     }
         
     // Supprimer un commentaire de la bdd
