@@ -45,17 +45,18 @@ class Billet extends Modele {
   }
     
   // Modifie un épisode dans la bdd
-  public function modifBillet($idBillet, $titre, $contenu) {
-    $sql = "UPDATE T_BILLET SET BIL_TITRE='$titre', BIL_CONTENU='$contenu' WHERE BIL_ID='$idBillet'";
-    $billets = $this->executerRequete($sql);
-    echo "Article modifié";
+  public function modifBillet($idBillet, $titre, $contenu) {//enkever variable
+    $sql = "UPDATE T_BILLET SET BIL_TITRE= ?, BIL_CONTENU= ? WHERE BIL_ID= ?";
+    $billets = $this->executerRequete($sql, array($titre,$contenu,$idBillet));
+    echo "Article modifié";//script alert
   
     }
     
   // Supprimer un épisode de la bdd
   public function delete($idBillet){
-          $sql ='DELETE FROM T_BILLET WHERE BIL_ID='.$idBillet;
+          $sql ='DELETE FROM t_billet WHERE BIL_ID='.$idBillet;
       $billets = $this->executerRequete($sql/*, array($idBillet)*/);
+      echo "Commentaire supprimé";
     return $billets;
   }
 }

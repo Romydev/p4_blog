@@ -1,7 +1,6 @@
 <?php
 
 class Routeur {
-
   private $ctrlAccueil;
   private $ctrlBillet;
   private $ctrlContact;
@@ -15,7 +14,7 @@ class Routeur {
   public function __construct() {
     $this->ctrlAccueil = new ControleurAccueil();
     $this->ctrlBillet = new ControleurBillet();
-    $this->ctrlContact = new ControleurContact();
+       $this->ctrlContact = new ControleurContact();
     $this->ctrlUser = new ControleurUser();
     $this->ctrlAdmin = new ControleurAdmin();
     $this->ctrlEditeur = new ControleurEditeur();
@@ -23,17 +22,16 @@ class Routeur {
     $this->ctrlModif = new ControleurModif();
     $this->ctrlSignal= new ControleurSignal();
   }
-
-  // Traite une requête entrante
-  public function routerRequete() {
+    // Route une requête entrante : exécution l'action associée
+     public function routerRequete() {
     try {
       if (isset($_GET['action'])) {
           
           switch ($_GET['action']) {
                 case 'billet':
-                    $idBillet = intval($this->getParametre($_GET, 'id'));
+                   $idBillet = intval($this->getParametre($_GET, 'id'));
                     if ($idBillet != 0) {
-                        $this->ctrlBilletDetail->billetDetail($idBillet);
+                        $this->ctrlBillet->billet($idBillet);
                     } else {
                         throw new Exception("Identifiant de l'épisode non valide");
                     }
@@ -50,7 +48,7 @@ class Routeur {
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $this->ctrlEditeur->editer($titre, $contenu);
                     break;
-                  case 'editeur':
+                case 'editeur':
                     $this->ctrlEditeur->editeur();
                     break;
                 case 'connexion':
@@ -80,7 +78,7 @@ class Routeur {
                     $titre = $this->getParametre($_POST, 'titre');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlModif->modifBillet($idBillet,$titre,$contenu);
+                    $this->ctrlModif->modifBillet($idBillet, $titre, $contenu);
                     break;
                 case 'editeurModifBillet':
                    $idBillet = $this->getParametre($_POST, 'id');
@@ -90,22 +88,17 @@ class Routeur {
                         throw new Exception("Identifiant de l'épisode non valide");
                     }
                     break;
-                case 'modifComm':
-                    $auteur = $this->getParametre($_POST, 'auteur');
-                    $contenu = $this->getParametre($_POST, 'contenu');
-                    $epId = $this->getParametre($_POST, 'idBillet');
-                    $signal = $this->getParametre($_POST, 'signal');
-                    $idCommentaire = $this->getParametre($_POST, 'id');
-                    $this->ctrlModif->modifCommentaire($idCommentaire, $auteur, $contenu, $signal, $epId);
-                    break;
-                case 'editeurModifComm':
-                   $idCommentaire = $this->getParametre($_POST, 'id');
-                    if ($idCommentaire != 0) {
-                        $this->ctrlModif->editeurModifComm($idCommentaire);
+              
+                case 'validComm':
+                   ////////////////////
+                  $idCommentaire = $this->getParametre($_POST, 'id');
+                  if ($idCommentaire != 0) {
+                        $this->ctrlModif->editeurValidComm($idCommentaire);
                     } else {
                         throw new Exception("Identifiant du commentaire non valide");
                     }
                     break;
+
                 case 'deleteBillet':
                     $idBillet = $this->getParametre($_POST, 'id');
                     $this->ctrlSuppr->deleteBillet($idBillet);
@@ -116,7 +109,7 @@ class Routeur {
                     break;
                 case 'signalement':
                     $idBillet = $this->getParametre($_POST, 'idBillet');
-                    $idCommentaire = $this->getParametre($_POST, 'idComm');
+                    $idCommentaire = $this->getParametre($_POST,'idComm');
                     $this->ctrlSignal->signal($idCommentaire, $idBillet);
                     break;
                 
@@ -125,9 +118,12 @@ class Routeur {
                   break;
           }
       }
-      else {  // aucune action définie : affichage de l'accueil
-        $this->ctrlAccueil->accueil();
-      }
+    //else accueil
+     else
+     {
+                  $this->ctrlAccueil->accueil();
+     }
+    ////////////////////////
     }
     catch (Exception $e) {
       $this->erreur($e->getMessage());

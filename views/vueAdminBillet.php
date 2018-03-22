@@ -1,56 +1,55 @@
 <?php $this->titre = "Jean Forteroche"; ?>
 
 
-<section class=" card col-lg-offset-1 col-lg-12">
+<section class="card col-lg-offset-1 col-lg-12">
+    <div>
+        <h4>Articles</h4>
 
-    <h4>Articles</h4>
+        <table class="table table-hover table-bordered mb-0">
+            <thead class="mdb-color lighten-2">
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Date</th>
+                    <th class="text-nowrap">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($billets as $billet):?>
+                <tr>
+                    <td>
+                        <?= $billet['id'] ?>
+                    </td>
+                    <td>
+                        <?= $billet['titre'] ?>
+                    </td>
 
-    <table class="table table-hover table-bordered mb-0">
-        <thead class="mdb-color lighten-2">
-            <tr>
-                <th>ID</th>
-                <th>Titre</th>
-                <th>Date</th>
-                <th class="text-nowrap">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($billets as $billet):?>
-            <tr>
-                <td>
-                    <?= $billet['id'] ?>
-                </td>
-                <td>
-                    <?= $billet['date'] ?>
-                </td>
-                <td>
-                    <?= $billet['titre'] ?>
-                </td>
-                <td class="text-nowrap">
+                    <td>
+                        <?= $billet['date'] ?>
+                    </td>
+                    <td class="text-nowrap">
 
-                    <form method="post" action="index.php?action=editeurModifBillet">
-                        <input type="hidden" name="id" value="<?=$billet['id']?>" />
-                        <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="fa fa-edit" aria-hidden="true"> Modifier</span> 
+                        <form method="post" action="index.php?action=editeurModifBillet">
+                            <input type="hidden" name="id" value="<?=$billet['id']?>" />
+                            <button type="submit" class="btn btn-info btn-xs" title="Modifier"><span class="fa fa-edit" aria-hidden="true"> Modifier</span> 
                         </button>
-                    </form>
+                        </form>
 
-                    <form method="post" action="index.php?action=deleteBillet" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer cet épisode ?'))">
-                        <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
-                        <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="fa fa-trash" aria-hidden="true"></span></button>
-                    </form>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+                        <form method="post" action="index.php?action=deleteBillet" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer cet épisode ?'))">
+                            <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
+                            <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="fa fa-trash" aria-hidden="true"></span></button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
 
-
-    <div class="col-lg-offset-12">
-        <a href="index.php?action=editeur"><button type="button" class="btn btn-primary"><i class="fa fa-plus-square"></i>  Ajouter un nouvel article</button></a>
+        <div>
+            <a href="index.php?action=editeur"><button type="button" class="btn btn-info"><i class="fa fa-plus-square"></i>  Ajouter un nouvel article</button></a>
+            <br/>
+        </div>
     </div>
-
-
-
 </section>
 
 

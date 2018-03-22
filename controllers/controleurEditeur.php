@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/billet.php';
+require_once 'model/Billet.php';
 require_once 'views/Vue.php';
 
 class ControleurEditeur {

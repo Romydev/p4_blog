@@ -1,10 +1,10 @@
-<?php $this->titre = "Mon Blog - " . $billet['titre']; ?>
+<?php $titre = "Mon Blog - " . $billet['titre']; ?>
 
-<article class="card">
+<article class="card z-depth-5 ">
     <header>
-        <h1 class="titreBillet">
+        <h4 class="titreBillet center-align">
             <?= $billet['titre'] ?>
-        </h1>
+        </h4>
         <time> <?= $billet['date'] ?></time>
     </header>
     <p>
@@ -12,10 +12,10 @@
     </p>
 </article>
 
-<div class="card card-comments mb-3 wow fadeIn">
-    <div class="card-header font-weight-bold">Commentaire de l'article
+<div class="card card-comments mb-3 wow fadeIn z-depth-5  ">
+    <h3 class="titreBillet center-align">Commentaire de l'article
         <?= $billet['titre'] ?>
-    </div>
+    </h3>
     <div class="card-body">
 
         <div class="media d-block d-md-flex mt-4">
@@ -25,19 +25,22 @@
 
 
                 <?php foreach ($commentaires as $commentaire): ?>
-                <h5 class="mt-0 font-weight-bold">
-                    <?= $commentaire['com_auteur'] ?> dit :
-                </h5>
-                <p>
-                    <?= $commentaire['com_contenu'] ?>
-                </p>
+                <div class="left-align com">
+                    <p class="mt-0 font-weight-bold">
+                        <?= $commentaire['com_auteur'] ?> dit :
+                    </p>
+                    <p>
+                        <?= $commentaire['com_contenu'] ?>
+                    </p>
+                </div>
 
                 <div class="col-lg-offset-10">
                     <div class="signal">
                         <form method="post" action="index.php?action=signalement" onclick="return(confirm('Êtes-vous sûr de vouloir signaler ce commentaire ?'))">
                             <input type="hidden" name="idComm" value="<?= $commentaire['com_id'] ?>" />
                             <input type="hidden" name="idBillet" value="<?= $billet['id'] ?>" />
-                            <button type="submit" class="btn btn-danger btn-xs" title="Signaler"><span class="glyphicon glyphicon-alert"><strong> Signaler ce commentaire </strong></span></button>
+                            <button type="submit" class="btn btn-dark btn-xs" title="Signaler"><span class="fa fa-bullhorn" aria-hidden="true"  ><strong> Signaler ce commentaire </strong></span></button>
+
                         </form>
                     </div>
                 </div>
@@ -48,22 +51,24 @@
     </div>
 </div>
 
-<div class="card mb-3 wow fadeIn">
-    <div class="card-header font-weight-bold">Ajouter un commentaire</div>
+<div class="card mb-3 wow fadeIn z-depth-5 ">
+    <h3 class="titreBillet center-align">Ajouter un commentaire</h3>
     <div class="card-body">
 
         <!-- Default form reply -->
         <form method="post" action="index.php?action=commenter">
 
-            <!-- Comment -->
-            <div class="form-group">
-                <label for="replyFormComment">Votre commentaire</label>
-                <textarea class="form-control" id="txtCommentaire" name="contenu" rows="5" required></textarea>
+            <div class="form-control">
+                <i class="fa fa-user-circle"></i>
+                <input id="icon_prefix" id="auteur" name="auteur" type="text" class="validate">
+                <label for="icon_prefix">Votre pseudo</label>
             </div>
 
-            <!-- Name -->
-            <label for="replyFormName">Votre pseudo</label>
-            <input type="text" id="auteur" required name="auteur" class="form-control">
+            <div class="form-control">
+                <i class="fa fa-edit"></i>
+                <textarea id="icon_prefix2" name="contenu"></textarea>
+                <label>Message</label>
+            </div>
 
             <br>
 
@@ -71,7 +76,7 @@
 
 
             <div class="text-center mt-4">
-                <button class="btn btn-info btn-md" type="submit">Commenter</button>
+                <button class="btn btn-secondary btn-lg btn-block" type="submit">Commenter</button>
             </div>
         </form>
         <!-- Default form reply -->

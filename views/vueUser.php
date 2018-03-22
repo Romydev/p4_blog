@@ -4,9 +4,6 @@
 
     <p>Cette page est réservée à l'administrateur du blog de Jean Forteroche.</p>
     <div class="wrap-login100">
-        <div class="login100-pic js-tilt" data-tilt>
-            <img src="vendor/img/img-01.png" alt="IMG">
-        </div>
 
         <form class="login100-form validate-form" action="index.php?action=connexion" method="post">
             <span class="login100-form-title">

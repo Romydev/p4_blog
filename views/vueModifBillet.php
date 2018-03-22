@@ -15,7 +15,7 @@
 
 <body>
 
-    <section class="col-lg-offset-3">
+    <section class="col-lg-offset-1 col-lg-12">
         <div class="edit">
             <h3>Modifier l'épisode</h3>
 
@@ -31,12 +31,16 @@
         </div>
     </section>
 
-    <br/>
+    <br/> <br/>
 
-    <div class="buttonUp">
+    <div class="btn btn-secondary btn-lg">
         <a href="<?= " index.php?action=adminBillet " ?>" role="button" class="btn btn-primary btn-lg"><span class="fa fa-caret-left" aria-hidden="true">
             Retour vers la page Billet</span>
         </a>
     </div>
+
+
+    <br/>
+
 
 </body>

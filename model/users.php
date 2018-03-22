@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/modele.php';
+require_once 'model/Modele.php';
 
 class Users extends Modele {
 

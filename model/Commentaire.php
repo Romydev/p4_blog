@@ -73,8 +73,9 @@ class Commentaire extends Modele {
     // Supprimer un commentaire de la bdd
   public function delete($idCommentaire){
       $sql = 'DELETE FROM T_COMMENTAIRE WHERE COM_ID='.$idCommentaire;
-      $commentaires = $this->executerRequete($sql/*, array($idEpisode)*/);
-    return $billets;
+      $commentaires = $this->executerRequete($sql);
+ echo "Commentaire supprimé";
+      return $commentaires;
   }
     
     // Signaler un commentaire de la bdd

@@ -1,0 +1,42 @@
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!--Modal: Contact form-->
+    <div class="modal-dialog cascading-modal" role="document">
+
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="card-title">
+                <h4 class="title">
+                    <i class="fa fa-pencil"></i> Ajouter un commentaire</h4>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <form method="post" action="index.php?action=commenter">
+                    <!-- Material input name -->
+                    <div class="md-form form-sm">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="text" id="auteur" required name="auteur" class="form-control form-control-sm">
+                        <label for="replyFormName">Votre pseudo</label>
+                    </div>
+
+                    <!-- Material textarea message -->
+                    <div class="md-form form-sm">
+                        <i class="fa fa-pencil prefix"></i>
+                        <textarea type="text" id="txtCommentaire" name="contenu" class="md-textarea form-control"></textarea>
+                        <label for="replyFormComment">Votre message</label>
+                    </div>
+
+                    <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
+
+                    <div class="text-center mt-4 mb-2">
+                        <button class="btn btn-primary">Envoyer
+                        <i class="fa fa-send ml-2"></i>
+                    </button>
+                    </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+        <!--/Modal: Contact form-->
+    </div>

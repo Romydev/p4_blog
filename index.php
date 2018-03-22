@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors',1);
 session_start();
 if(!isset($_SESSION['Auth'])){
     $_SESSION['Auth'] = false;
@@ -20,6 +21,7 @@ spl_autoload_register("autoloadFunction");
 // Connects to the database Db::connect("localhost", "root", "", "blogtest");
 
 // Creating the router and processing parameters from the user's URL
-require 'controllers/controleurRouteur.php';
-$routeur = new ControleurRouteur();
+
+require 'controllers/routeur.php';
+$routeur = new Routeur();
 $routeur->routerRequete();
