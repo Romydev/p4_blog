@@ -55,7 +55,7 @@
 
 <section class="card col-lg-offset-1 col-lg-12">
 
-    <h4>Commentaires</h4>
+    <h4>Modération commentaire </h4>
 
     <table class="table table-hover table-bordered mb-0">
         <thead>

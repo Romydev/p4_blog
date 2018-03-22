@@ -36,12 +36,11 @@ class Billet extends Modele {
     
    // Ajoute un épisode dans la bdd
   public function ajouterBillet($titre, $contenu) {
-    $sql = 'INSERT INTO T_BILLET(BIL_ID, BIL_DATE, BIL_TITRE,BIL_CONTENU)'
-      . ' values(?, ?, ?, ?)';
+    $sql = 'INSERT INTO T_BILLET(BIL_DATE, BIL_TITRE,BIL_CONTENU)'
+      . ' values(?, ?, ?)';
          $date = new DateTime('now',new DateTimeZone('Europe/Paris'));  // Récupère la date courante
         $date_string =$date->format('Y-m-d H:m:s');
-        $this->executerRequete($sql, array( $idBillet,$date_string, $titre, $contenu,));
-
+        $this->executerRequete($sql, array($date_string, $titre, $contenu,));
   }
     
   // Modifie un épisode dans la bdd
@@ -54,7 +53,8 @@ class Billet extends Modele {
     
   // Supprimer un épisode de la bdd
   public function delete($idBillet){
-          $sql ='DELETE FROM t_billet WHERE BIL_ID='.$idBillet;
+    $this->executerRequete('DELETE FROM t_commentaire WHERE BIL_ID ='.$idBillet);
+    $sql ='DELETE FROM t_billet WHERE BIL_ID='.$idBillet;
       $billets = $this->executerRequete($sql/*, array($idBillet)*/);
       echo "Commentaire supprimé";
     return $billets;

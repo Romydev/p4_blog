@@ -15,7 +15,7 @@
 
 <body>
 
-    <section class="col-lg-offset-3">
+    <section class=" card col-lg-offset-3">
         <div class="edit">
             <h3>Ecrire un nouvel épisode</h3>
 

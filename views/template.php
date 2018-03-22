@@ -71,7 +71,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="http://p4blog/index.php?action=adminBillet">Bio </a>
+                                    <a href="http://p4blog/index.php?action=adminBillet">Administration </a>
 
 
                                 </li>

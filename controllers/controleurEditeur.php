@@ -6,16 +6,20 @@ require_once 'views/Vue.php';
 class ControleurEditeur {
 
   private $billet;
+    private $commentaire;
 
   public function __construct() {
     $this->billet = new Billet();
+      $this->commentaire = new Commentaire();
   }
 
-  // Affiche un billet
+// Affiche les articles
   public function billet() {
     $billets = $this->billet->getBillets();
+    $commentaires = $this->commentaire->getCommSignal();
+  
     $vue = new Vue("AdminBillet");
-    $vue->generer(array('billets' => $billets));
+    $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));  
   }
 
   // Ajoute un billet
