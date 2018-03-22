@@ -86,12 +86,12 @@
 
                     <form method="post" action="index.php?action=validComm">
                         <input type="hidden" name="id" value="<?php echo $commentaire['com_id']; ?>" />
-                        <button type="submit" class="btn btn-info btn-xs" title="Valider"><span class="glyphicon glyphicon-edit"> Valider</span></button>
+                        <button type="submit" class="btn btn-info btn-xs" title="Valider"><span class="fa fa-edit" aria-hidden="true"> Valider</span></button>
                     </form>
 
                     <form method="post" action="index.php?action=deleteComm" onclick="return(confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?'))">
                         <input type="hidden" name="id" value="<?= $commentaire['com_id'] ?>" />
-                        <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="glyphicon glyphicon-trash"></span></button>
+                        <button type="submit" class="btn btn-danger btn-xs" title="Supprimer"><span class="fa fa-trash" aria-hidden="true"></span></button>
                     </form>
                 </td>
             </tr>

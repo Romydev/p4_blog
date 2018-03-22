@@ -126,7 +126,7 @@
         <div class="container">
             <footer class="footer">
                 <div class="col-lg-3">
-                    <a href="index.php?action=formulaire"><button type="button" class="btn btn-success" title="Connexion"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></a>
+                    <a href="index.php?action=formulaire"><button type="button" class="btn btn-success" title="Connexion"><span class="fa fa-sign-in-alt"></span> Connexion</button></a>
                 </div>
 
                 <div class="col-xs-6 col-sm-3 col-md-3 wow fadeInUp">
@@ -142,9 +142,9 @@
     <div class="col-ms-12 copy-bg">
         <div class="container">
             <div class="">
-                <a class="copy-text wow fadeInUp" href="http://multia.in/">
-                    <p class="copytxt">2017 Copyright</p>
-                </a>
+
+                <p class="copytxt">2017 Copyright</p>
+
 
             </div>
         </div>

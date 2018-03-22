@@ -18,7 +18,7 @@ class ControleurUser{
             $commentaires = $this->commentaire->getCommSignal();
             $_SESSION['Auth'] = true;
             $vue = new Vue ("AdminBillet");
-            $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));//Mod Hellodevs
+            $vue->generer(array('billets' => $billets, 'commentaires' => $commentaires));
         }
         else {
             $vue = new Vue ("User");

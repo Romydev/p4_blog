@@ -34,7 +34,7 @@ class ControleurSuppr {
   // Affiche les commentaires
   public function commentaire() {
     $commentaires = $this->commentaire->getComm();
-    $vue = new Vue("AdminComm");
+    $vue = new Vue("AdminBillet");
     $vue->generer(array('commentaires' => $commentaires));
   }
 
